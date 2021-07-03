@@ -5,6 +5,7 @@ fun main() {
     val major = mutableListOf("The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
     "Strength", "The Hermit", "Wheel of Fortune", "Justice", "The Hanged Man", "Death", "Temperance", "The Devil", "The Tower", "The Star", "The Moon", "The Sun",
     "Judgement", "The World") // 대 아르카나 카드 배열
+    val pickedMajor = mutableListOf<String>()
     val pickedMinor = mutableListOf<Card>() // 소 아르카나 중복 방지 리스트 선언
     val minorNum = mutableListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Page", "Knight", "Queen", "King") // 소 아르카나 숫자
     val minorSuit = mutableListOf("Wands", "Cups", "Swords", "Pentacles") // 소 아르카나 수트
@@ -33,7 +34,7 @@ fun main() {
                             readLine()
                             exitProcess(-1)
                         }
-                        println("${major.removeAt(input - 1)} | ${direction[Random.nextInt(2)]}")
+                        pickedMajor.add("${major.removeAt(input - 1)} | ${direction[Random.nextInt(2)]}")
                     } catch (e : NumberFormatException) {
                         println("잘못된 입력입니다. 종료합니다.")
                         print("\nEnter를 눌러 종료합니다.")
@@ -84,6 +85,9 @@ fun main() {
         print("\nEnter를 눌러 종료합니다.")
         readLine()
         exitProcess(-1)
+    }
+    for (i in pickedMajor.indices) {
+        println(pickedMajor[i])
     }
     for (i in pickedMinor.indices) {
         println("${pickedMinor[i].number} | ${pickedMinor[i].suit} | ${pickedMinor[i].direction}")
