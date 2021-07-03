@@ -21,7 +21,7 @@ fun main() {
     print("몇장의 카드를 뽑습니까? 정수로 입력해주세요. : ")
     try {
         var counts = readLine()!!.toInt()
-        for (i in 0 until counts) {
+        cont@ for (i in 0 until counts) {
             when (arcana) {
                 "대" -> {
                     major.shuffle()
@@ -61,7 +61,7 @@ fun main() {
                             for (j in pickedMinor.indices) {
                                 if (struct.number in pickedMinor[j].number && struct.suit in pickedMinor[j].suit) {
                                     counts++
-                                    continue
+                                    continue@cont
                                 }
                             }
                             pickedMinor.add(struct)
