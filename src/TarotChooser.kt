@@ -49,7 +49,7 @@ fun main() {
                         print("1부터 ${minorSuit.size} 사이의 수를 정수로 입력해주세요. : ") // 수트 인덱스 입력
                         try {
                             val input2 = readLine()!!.toInt() // 입력 받음
-                            val struct = Card(number = minorNum[input], suit = minorSuit[input2], direction = direction[Random.nextInt(2)]) // 데이터 클래스로 구조체 만듬
+                            val struct = Card(number = minorNum[input - 1], suit = minorSuit[input2 - 1], direction = direction[Random.nextInt(2)]) // 데이터 클래스로 구조체 만듬
                            for (j in pickedMinor.indices) { // 브루트 포스 중복 검사
                                 if (struct.number in pickedMinor[j].number && struct.suit in pickedMinor[j].suit) { // 구조체의 숫자와 수트가 모두 동일할 경우
                                     counts++ // 1회 더 반복할 것
